@@ -1,0 +1,23 @@
+<div class="header">
+  <h1>DES CHIFFRES ET DES LETTRES</h1>
+  <p><em>Oui monsieur Bertrand Renard</em></p>
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTcFQ5BlTw0Mj29hdbTz1UoDbJ2y48vTrHhAA&usqp=CAU" alt="">
+</div>
+
+<div class="list">
+  <ul class="list-inline">
+    <% @letters.each do |letter| %>
+      <li><%= letter %></li>
+    <% end %>
+  </ul>
+</div>
+
+<div class="form">
+  <form action="/score" method="post">
+    <label for="">Votre mot le plus long?</label><br>
+    <input type="text" name="word" class="input">
+    <input type="submit" value="Play" class="btn">
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+    <%= hidden_field_tag :letters, @letters %>
+  </form>
+</div>
